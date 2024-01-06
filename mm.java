@@ -23,8 +23,10 @@ public class mm
             System.out.println("-------------------");
         }
     }
+    System.out.println("-------------------");
     System.out.print("Enter Number:");
     int x=sc.nextInt();
+    t.display();
     if(x==0)
     {
     System.out.print("Enter name of player:");
@@ -98,7 +100,7 @@ public class mm
     {
     HardAI h2=new HardAI("ai");
     player cp;
-    cp=h2;
+    cp=h1;
     while(true)
     {
         System.out.println(cp.name + " turn");
@@ -116,12 +118,12 @@ public class mm
         }
         else
         {
-            if(cp==h2)
+            if(cp==h1)
             {
-                cp=h1;
+                cp=h2;
             }
             else{
-                cp=h2;
+                cp=h1;
             }
         }
     }   
