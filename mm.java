@@ -4,7 +4,15 @@ public class mm
 {
     public static void main(String[]args)
     {
+    while(true)
+    {
     Scanner sc=new Scanner(System.in);
+    System.out.println("## Game Rules\r\n" + //
+            "\r\n" + //
+            "- The game is played on a 3x3 grid.\r\n" + //
+            "- Players take turns placing their marks ('X' or 'O') on an empty cell.\r\n" + //
+            "- The first player to get three of their marks in a row (horizontally, vertically, or diagonally) wins.\r\n" + //
+            "- If the grid is filled and no player has won, the game is a draw.");
     System.out.print("Enter name of player:");
     String sr=sc.next();
     tictactoe t=new tictactoe();
@@ -41,12 +49,12 @@ public class mm
         System.out.println(cp.name + " turn");
         cp.makemove();
         t.display();
-        if(t.checkwin())
+        if(tictactoe.checkwin())
         {
             System.out.println(cp.name+" winner");
             break;
         }
-        else if(t.checkdraw())
+        else if(tictactoe.checkdraw())
         {
             System.out.println(" Oops Draw");
             break;
@@ -74,12 +82,12 @@ public class mm
         System.out.println(cp.name + " turn");
         cp.makemove();
         t.display();
-        if(t.checkwin())
+        if(tictactoe.checkwin())
         {
             System.out.println(cp.name+" winner");
             break;
         }
-        else if(t.checkdraw())
+        else if(tictactoe.checkdraw())
         {
             System.out.println(" Oops Draw");
             break;
@@ -106,12 +114,12 @@ public class mm
         System.out.println(cp.name + " turn");
         cp.makemove();
         t.display();
-        if(t.checkwin())
+        if(tictactoe.checkwin())
         {
             System.out.println(cp.name+" winner");
             break;
         }
-        else if(t.checkdraw())
+        else if(tictactoe.checkdraw())
         {
             System.out.println(" Oops Draw");
             break;
@@ -128,6 +136,20 @@ public class mm
         }
     }   
     }
-sc.close();
+    System.out.println("if you want to play more(type 1 to continue and 2 to exit)");
+    int s=sc.nextInt();
+    if(s==1)
+    {
+        continue;
+    }
+    if(s==2)
+    {
+        break;
+    }
+    if(s!=1&&s!=2)
+    {
+        System.out.println("type right!");
+    }
 }
+    }
 }
