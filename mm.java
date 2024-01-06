@@ -7,12 +7,10 @@ public class mm
     Scanner sc=new Scanner(System.in);
     System.out.print("Enter name of player:");
     String sr=sc.next();
-    System.out.print("Enter your mark:");
-    char uI = sc.next().charAt(0);
     tictactoe t=new tictactoe();
-    player h1=new human(sr, uI);
+    player h1=new human(sr, 'x');
     System.out.println("Who Do You Want To Play Against");
-    String[][] array = {{"Character","Number"},{"Friend", "0"}, {"AI", "1"}};
+    String[][] array = {{"Character","Number"},{"Friend", "0"}, {"AI", "1"},{"HardAI","2"}};
     // Print the 2D array with a more complex design
     System.out.println("-------------------");
     for (int i = 0; i < array.length; i++) {
@@ -95,6 +93,38 @@ public class mm
             }
         }
     }
+    }
+    else if(x==2)
+    {
+    HardAI h2=new HardAI("ai");
+    player cp;
+    cp=h2;
+    while(true)
+    {
+        System.out.println(cp.name + " turn");
+        cp.makemove();
+        t.display();
+        if(t.checkwin())
+        {
+            System.out.println(cp.name+" winner");
+            break;
+        }
+        else if(t.checkdraw())
+        {
+            System.out.println(" Oops Draw");
+            break;
+        }
+        else
+        {
+            if(cp==h2)
+            {
+                cp=h1;
+            }
+            else{
+                cp=h2;
+            }
+        }
+    }   
     }
 sc.close();
 }

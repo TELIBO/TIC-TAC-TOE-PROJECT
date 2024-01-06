@@ -39,46 +39,49 @@ public class tictactoe
             System.out.println("invalid move");
         }
     }
-    boolean cw()
+    static char whowon;
+    static boolean cw()
     {
         for(int j=0;j<=2;j++)
         {
             if(arr[0][j]!=' '&&arr[0][j]==arr[1][j]&&arr[1][j]==arr[2][j])
             {
+                whowon=arr[0][j];
                 return true;
             }
         }
         return false;
     }
-    boolean rw()
+    static boolean rw()
     {
         for(int j=0;j<=2;j++)
         {
             if(arr[j][0]!=' '&&arr[j][0]==arr[j][1]&&arr[j][1]==arr[j][2])
             {
+                whowon=arr[j][0];
                 return true;
             }
         }
         return false;
     }
-    boolean dw()
+    static boolean dw()
     {
         if(arr[0][0]!=' '&&arr[0][0]==arr[1][1]&&arr[1][1]==arr[2][2]||arr[0][2]!=' '&&arr[0][2]==arr[1][1]&&arr[1][1]==arr[2][0])
         {
+            whowon=arr[1][1];
             return true;
         }
         return false;
     }
-    boolean checkwin()
+    static boolean checkwin()
     {
         if(cw()||rw()||dw())
         {
-          System.out.println("winner!winner!");
             return true;
         }
         return false;
     }
-    boolean checkdraw()
+    static boolean checkdraw()
     {
         int sum=0;
         for(int i=0;i<arr.length;i++)
