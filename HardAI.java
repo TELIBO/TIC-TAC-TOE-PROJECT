@@ -27,6 +27,13 @@ public class HardAI extends player {
             for (int j = 0; j < 3; j++) {
                 if (isvalidmove(board, i, j)) {
                     board[i][j] = maximizing ? 'o' : 'x';
+
+                    // Check if the current move leads to a win
+                    if (tictactoe.checkwin() && maximizing) {
+                        board[i][j] = ' ';
+                        return new int[] { Integer.MAX_VALUE, i, j };
+                    }
+
                     int[] score = minimax(board, !maximizing);
                     board[i][j] = ' ';
 
